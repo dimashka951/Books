@@ -1,19 +1,25 @@
 package com.project.books;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "book")
 public class Book {
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
     private String author;
+    @Column(name = "\"year\"")
     private int year;
+
+    public Book( String title, String author, int year) {
+
+        this.title = title;
+        this.author = author;
+        this.year = year;
+    }
 
     public String getTitle() {
         return title;
